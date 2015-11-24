@@ -100,7 +100,7 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{NIDM-API: A standard format and tool for querying neuroimaging results}
+\title{Integration of neuroimaging results into the web}
 \vskip2ex
 \projectURL{Project URL: \url{http://nidm-api.readthedocs.org}}
 
@@ -229,32 +229,32 @@ The same functionality can be achieved on the command line \href{http://nidm-api
 \begin{center}
 \includegraphics[width=7cm]{img/figure1}
 \end{center}
- \textbf{\refstepcounter{figure}\label{fig:01}Figure \arabic{figure}.}{An example result of querying a nidm-results object (RDF) with the nidm-api returns web-friendly JavaScript Object Notation (JSON).}
+ \textbf{\refstepcounter{figure}\label{fig:01}Figure \arabic{figure}.}{An example result of querying a nidm-results object (RDF) with the nidm-api returns JavaScript Object Notation (JSON).}
 \end{figure}
 
 \subparagraph{\texorpdfstring{\texttt{Generating new queries}:}{:}}\label{section}
-Researchers with semantic web expertise can run the application in the same fashion, and go to URL in their local browser (http://localhost:8088/query/new) to reveal an interface to generate new query objects \ref{fig:02}. The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.
+Researchers with semantic web expertise can run the application in the same fashion, and go to URL in their local browser (http://localhost:8088/query/new) to reveal an interface to generate new query objects \ref{fig:02}. The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.\newline
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=7cm]{img/figure2}
 \end{center}
- \textbf{\refstepcounter{figure}\label{fig:02}Figure \arabic{figure}.}{The tool provides an interactive web interface for semantic web experts to contribute new queries.}
+ \textbf{\refstepcounter{figure}\label{fig:02}Figure \arabic{figure}.}{The tool provides an interactive web interface to contribute new queries.}
 \end{figure}
 
 \subparagraph{\texorpdfstring{\texttt{Applications using NIDM}:}{:}}\label{section}
-As an example of the utility of the NIDM standard, the NIDM results object model \cite{noauthor_undated-if} has recently been integrated into NeuroVault \href{http://www.neurovault.org}{NeuroVault}, meaning that neuroimaging researchers can export results pertaining to statistical brain maps from common software \cite{Jenkinson2012-pr} into the NeuroVautl database. An \href{https://github.com/vsoch/nidmviewer}{nidm-viewer} that runs queries over the nidm-results can then parse the coordinates and statistical parameters associated with significant locations of activations to be rendered in a table alongside a visualization of the brain map itself \ref{fig:03} and \href{http://neurovault.org/collections/877/fsl_course_av.nidm}{example}. \ref{centfig}. The raw data and parameters of the analysis are thus immediately available for sharing and publication, programatically accessible, and viewable from any web browser. 
+As an example of the utility of the NIDM standard, the NIDM results object model \cite{noauthor_undated-if} has recently been integrated into NeuroVault \href{http://www.neurovault.org}{NeuroVault}, meaning that neuroimaging researchers can export results pertaining to statistical brain maps from common software \cite{Jenkinson2012-pr} into the NeuroVault database. An \href{https://github.com/vsoch/nidmviewer}{nidm-viewer} that runs queries over the nidm-results can then parse the coordinates and statistical parameters associated with significant locations of activations to be rendered in a table alongside a visualization of the brain map itself \ref{fig:03} and \href{http://neurovault.org/collections/877/fsl_course_av.nidm}{example}. The raw data and parameters of the analysis are thus immediately available for sharing and publication, programatically accessible, and viewed from any web browser. 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=7cm]{img/figure3}
 \end{center}
- \textbf{\refstepcounter{figure}\label{fig:03}Figure \arabic{figure}.}{The nidm-viewer in the NeuroVault database queries nidm-result objects to generate an interactive table and statistical brain map to explore a result.}
+ \textbf{\refstepcounter{figure}\label{fig:03}Figure \arabic{figure}.}{The nidm-viewer in the NeuroVault database queries nidm-result objects to generate an interactive table and statistical brain map.}
 \end{figure}
 
 \section{Conclusions}\label{conclusions}
 
-By separating queries from the software to serve them, development of both can be optimized, and the nidm standard more easily deployed into tools to empower neuroimaging researchers to explore and synthesize results, workflows, and experiments. This application will be further developed to return more modern and desired outputs such as images and interactive graphs \cite{noauthor_undated-fs}\cite{Bostock2011-ei}, and as the NIDM experiment, workflows, and results standards are further developed. The software and queries are both \href{https://github.com/incf-nidash}{publicly available} and open to contributions.
+By separating queries from the software to serve them, development of both can be optimized, and the nidm standard more easily deployed into tools to empower neuroimaging researchers to explore and synthesize results, workflows, and experiments. This application will be further developed to return more modern and desired outputs such as images and interactive graphs \cite{noauthor_undated-fs}, and as the NIDM experiment, workflows, and results standards are further developed. The software and queries are both \href{https://github.com/incf-nidash}{publicly available} and open to contributions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
