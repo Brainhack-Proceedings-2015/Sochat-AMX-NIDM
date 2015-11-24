@@ -221,35 +221,21 @@ and can then be executed in a RESTful fashion by including a variable to point t
 
 \textbf{http://localhost:8088/api/query/7950f524-90e8-4d54-ad6d-7b22af2e895d?ttl=/home/nidm.ttl}\newline
 
-The API then runs the query over the object, and returns the result to the user in JSON (Figure \ref{fig:01}).
+The API then runs the query over the object, and returns the result to the user in JSON.
 
 The same functionality can be achieved on the command line \href{http://nidm-api.readthedocs.org/en/latest/getting-started.html#integration-into-python}{command line} in the case that it is desired to integrate it directly into a server-based python application.
+
+\subparagraph{\texorpdfstring{\texttt{Generating new queries}:}{:}}\label{section}
+Researchers with semantic web expertise can run the application in the same fashion, and go to URL in their local browser (http://localhost:8088/query/new) to reveal \href{http://nidm-api.readthedocs.org/en/latest/development.html#web-query-generator}{an interface} to generate new query objects. The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.\newline
+
+\subparagraph{\texorpdfstring{\texttt{Applications using NIDM}:}{:}}\label{section}
+As an example of the utility of the NIDM standard, the NIDM results object model \cite{noauthor_undated-if} has recently been integrated into the \href{http://www.neurovault.org}{NeuroVault} database, meaning that neuroimaging researchers can export results pertaining to statistical brain maps from common software \cite{Jenkinson2012-pr} into NeuroVault. An \href{https://github.com/vsoch/nidmviewer}{nidm-viewer} that runs queries over the nidm-results can then parse the coordinates and statistical parameters associated with significant locations of activations to be rendered in a table alongside a visualization of the brain map itself (Figure \ref{fig:01} and \href{http://neurovault.org/collections/877/fsl_course_av.nidm}{example}). The raw data and parameters of the analysis are thus immediately available for sharing and publication, programatically accessible, and viewed from any web browser. 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[width=7cm]{img/figure1}
 \end{center}
- \textbf{\refstepcounter{figure}\label{fig:01}Figure \arabic{figure}.}{An example result of querying a nidm-results object (RDF) with the nidm-api returns JavaScript Object Notation (JSON).}
-\end{figure}
-
-\subparagraph{\texorpdfstring{\texttt{Generating new queries}:}{:}}\label{section}
-Researchers with semantic web expertise can run the application in the same fashion, and go to URL in their local browser (http://localhost:8088/query/new) to reveal an interface to generate new query objects (Figure \ref{fig:02}). The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.\newline
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=7cm]{img/figure2}
-\end{center}
- \textbf{\refstepcounter{figure}\label{fig:02}Figure \arabic{figure}.}{The tool provides an interactive web interface to contribute new queries.}
-\end{figure}
-
-\subparagraph{\texorpdfstring{\texttt{Applications using NIDM}:}{:}}\label{section}
-As an example of the utility of the NIDM standard, the NIDM results object model \cite{noauthor_undated-if} has recently been integrated into the \href{http://www.neurovault.org}{NeuroVault} database, meaning that neuroimaging researchers can export results pertaining to statistical brain maps from common software \cite{Jenkinson2012-pr} into NeuroVault. An \href{https://github.com/vsoch/nidmviewer}{nidm-viewer} that runs queries over the nidm-results can then parse the coordinates and statistical parameters associated with significant locations of activations to be rendered in a table alongside a visualization of the brain map itself (Figure \ref{fig:03} and \href{http://neurovault.org/collections/877/fsl_course_av.nidm}{example}). The raw data and parameters of the analysis are thus immediately available for sharing and publication, programatically accessible, and viewed from any web browser. 
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=7cm]{img/figure3}
-\end{center}
- \textbf{\refstepcounter{figure}\label{fig:03}Figure \arabic{figure}.}{The nidm-viewer in the NeuroVault database queries nidm-result objects to generate an interactive table and statistical brain map.}
+ \textbf{\refstepcounter{figure}\label{fig:01}Figure \arabic{figure}.}{The nidm-viewer in the NeuroVault database queries nidm-result objects to generate an interactive table and statistical brain map.}
 \end{figure}
 
 \section{Conclusions}\label{conclusions}
