@@ -1,0 +1,361 @@
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
+
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%          <8 June 2012>              %%
+%%                                     %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.html and the instructions for   %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+%%% loading packages, author definitions
+
+\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
+%\documentclass{bmcart}
+
+%%% Load packages
+\usepackage{amsthm,amsmath}
+\usepackage{siunitx}
+\usepackage{mfirstuc}
+%\RequirePackage{natbib}
+\usepackage[colorinlistoftodos]{todonotes}
+\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+\usepackage[htt]{hyphenat}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\def\includegraphic{}
+%\def\includegraphics{}
+
+%%% Put your definitions there:
+\startlocaldefs
+\endlocaldefs
+
+
+%%% Begin ...
+\begin{document}
+
+%%% Start of article front matter
+\begin{frontmatter}
+
+\begin{fmbox}
+\dochead{Report from 2015 Brainhack Americas (MX)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Optimized implementations of voxel-wise degree centrality and local
+functional connectivity density mapping in AFNI}
+\vskip2ex
+\projectURL{Project URL: \url{http://github.com/ccraddock/afni}}
+
+\author[
+addressref={aff1, aff2},
+corref={aff1},
+email={ccraddock@nki.rfmh.org}
+]{\inits{RCC} \fnm{R. Cameron} \snm{Craddock}}
+\author[
+addressref={aff2},
+%
+email={daniel.clark@childmind.org}
+]{\inits{DJC} \fnm{Daniel J.} \snm{Clark}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%% Repeat \address commands as much as      %%
+%% required.                                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\address[id=aff1]{%
+  \orgname{Computational Neuroimaging Lab, Center for Biomedical Imaging and
+Neuromodulation, Nathan Kline Institute for Psychiatric Research},
+  \city{Orangeburg},
+  \street{140 Old Orangeburg Rd},
+  \postcode{10962},
+  \postcode{New York},
+  \cny{USA}
+}
+\address[id=aff2]{%
+  \orgname{Center for the Developing Brain, Child Mind Institute},
+  \city{New York},
+  \street{445 Park Ave},
+  \postcode{10022},
+  \postcode{New York},
+  \cny{USA}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter short notes here                   %%
+%%                                          %%
+%% Short notes will be after addresses      %%
+%% on first page.                           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{artnotes}
+\end{artnotes}
+
+%\end{fmbox}% comment this for two column layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{abstractbox}
+
+%\begin{abstract} % abstract
+	
+%Blank Abstract
+
+%\end{abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The keywords begin here                  %%
+%%                                          %%
+%% Put each keyword in separate \kwd{}.     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\vskip1ex
+
+%\projectURL{\url{http://github.com/ccraddock/afni}}
+%\projectURL{http://github.com/ccraddock/afni}
+
+% MSC classifications codes, if any
+%\begin{keyword}[class=AMS]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+%\end{abstractbox}
+%
+\end{fmbox}% uncomment this for twcolumn layout
+
+\end{frontmatter}
+
+%{\sffamily\bfseries\fontsize{10}{12}\selectfont Project URL: \url{http://github.com/ccraddock/afni}}
+
+%%% Import the body from pandoc formatted text
+\section{Introduction}\label{introduction}
+
+Degree centrality (DC) \cite{Rubinov2010} and local functional
+connectivity density (lFCD) \cite{Tomasi2010} are statistics calculated
+from brain connectivity graphs that measure how important a brain region
+is to the graph. DC (a.k.a. global functional connectivity density
+\cite{Tomasi2010}) is calculated as the number of connections a region
+has with the rest of the brain (binary DC), or the sum of weights for
+those connections (weighted DC) \cite{Rubinov2010}. lFCD was developed
+to be a surrogate measure of DC that is faster to calculate by
+restricting its computation to regions that are spatially adjacent
+\cite{Tomasi2010}. Although both of these measures are popular for
+investigating inter-individual variation in brain connectivity,
+efficient neuroimaging tools for computing them are scarce. The goal of
+this Brainhack project was to contribute optimized implementations of
+these algorithms to the widely used, open source, AFNI software package
+\cite{Cox1996}.
+
+\section{Approach}\label{approach}
+
+Tools for calculating DC (\texttt{3dDegreeCentrality}) and lFCD
+(\texttt{3dLFCD}) were implemented by modifying the C source code of
+AFNI's \texttt{3dAutoTcorrelate} tool. \texttt{3dAutoTcorrelate}
+calculates the voxel \(\times\) voxel correlation matrix for a dataset
+and includes most of the functionality we require, including support for
+OpenMP \cite{Dagum1998} multithreading to improve calculation time, the
+ability to restrict the calculation using a user-supplied or
+auto-calculated mask, and support for both Pearson's and Spearman
+correlation.
+
+\subparagraph{\texorpdfstring{\texttt{3dDegreeCentrality}:}{:}}\label{section}
+
+Calculating DC is straight forward and is quick when a correlation
+threshold or is used. In this scenario, each of the
+\(.5*N_{vox}*(N_{vox}-1)\) unique correlations are calculated, and if
+they exceed a user specified threshold (default threshold = 0.0) the
+binary and weighted DC value for each of the voxels involved in the
+calculation are incremented. The procedure is more tricky if sparsity
+thresholding is used, where the top \(P\%\) of connections are included
+in the calculation. This requires that a large number of the connections
+be retained and ranked - consuming substantial memory and computation.
+We optimize this procedure with a histogram and adaptive thresholding.
+If a correlation exceeds threshold it is added to a 50-bin histogram
+(array of linked lists). If it is determined that the lowest bin of the
+histogram is not needed to meet the sparsity goal, the threshold is
+increased by the bin-width and the bin is discarded. Once all of the
+correlations have been calculated, the histogram is traversed from high
+to low, incorporating connections into binary and weighted DC until a
+bin is encountered that would push the number of retained connections
+over the desired sparsity. This bin's values are sorted into a 100-bin
+histogram that is likewise traversed until the sparsity threshold is met
+or exceeded. Sparsity is exceeded when the differences between
+correlation values are less than \(1.0/(50*100)\).
+
+\begin{table*}[t!]
+\caption{\label{stattable}Comparison of the time and memory required by the C-PAC and AFNI implementations to calculate DC (sparsity and correlation threshold) and lFCD on the first resting state scan of the first scanning session for all 36 participants' data in the IBATRT dataset. Values are averaged across the 36 datasets and presented along with standard deviations in parenthesis.}
+\begin{tabular}{l l l l l l l l}
+ \hline\noalign{\smallskip}
+          &            & \multicolumn{2}{c}{DC $\rho \geq 0.6$} & \multicolumn{2}{c}{DC $0.1\%$ Sparsity} & \multicolumn{2}{c}{lFCD $\rho \geq 0.6$} \\
+  Method  & Number of Threads & Time (s)       & Mem (GB)            & Time (s)       & Mem (GB)            & Time (s)       & Mem (GB) \\
+    \hline\noalign{\smallskip}
+  C-PAC   & 1          & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)  \\
+  AFNI    & 2          & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)  \\
+  AFNI    & 4          & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)  \\
+  AFNI    & 8          & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)             & 360 (15)       & 6.2(70)  \\
+  \noalign{\smallskip}\hline
+\end{tabular}
+\end{table*}
+
+\subparagraph{\texorpdfstring{\texttt{3dLFCD}:}{:}}\label{section-1}
+
+lFCD was calculating using a region growing algorithm in which face-,
+side-, and corner-touching voxels are iteratively added to the cluster
+if their correlation with the target voxel exceeds a threshold (default
+threshold = 0.0). Although lFCD was originally defined as the number of
+voxels locally connected to the target, we also included a weighted
+version.
+
+\subparagraph{Validation:}\label{validation}
+
+Outputs from the newly developed tools were benchmarked to Python
+implementations of these measures from the Configurable Pipeline for the
+Analysis of Connectomes (C-PAC) \cite{Craddock2013c} using in the
+publically shared
+\href{http://fcon_1000.projects.nitrc.org/indi/CoRR/html/ibatrt.html}{Intrinsic Brain Activity Test-Retest (IBATRT) dataset}
+from the Consortium for Reliability and Reproduciblity\cite{Zuo2014}.
+
+\section{Results}\label{results}
+
+AFNI tools were developed for calculating lFCD and DC from functional
+neuroimaging data and have been submitted for inclusion into AFNI. LFCD
+and DC maps from the test dataset (illustrated in Fig. \ref{centfig})
+are identical to those calculated using C-PAC but required substantially
+less time and memory (see Table \ref{stattable}).
+
+\section{Conclusions}\label{conclusions}
+
+Optimized versions of lFCD and DC achieved 4\(\times\) to 30\(\times\)
+decreases in computation time compared to C-PAC's Python implementation
+and decreased the memory footprint to less than 1 gigabyte. These
+improvements will dramatically increase the size of Connectomes analyses
+that can be performed using conventional workstations. Making this
+implementation available through AFNI ensures that it will be available
+to a wide range of neuroimaging researchers who do not have the
+wherewithal to implement these algorithms themselves.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Backmatter begins here                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{backmatter}
+
+\section*{Availability of Supporting Data}
+More information about this project can be found at: \url{http://github.com/ccraddock/afni}. Further data and files supporting this project are hosted in the \emph{GigaScience} repository REFXXX.
+
+\section*{Competing interests}
+None
+
+\section*{Author's contributions}
+RCC and DJC wrote the software, DJC performed tests, and DJC and RCC
+wrote the report.
+
+\section*{Acknowledgements}
+The authors would like to thank the organizers and attendees of
+Brainhack MX and the developers of AFNI. This project was funded in part
+by a Educational Research Grant from Amazon Web Services.
+
+  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  Bmc_mathpys.bst  will be used to                       %%
+%%  create a .BBL file for submission.                     %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{bmc-mathphys} % Style BST file
+\bibliography{brainhack-report} % Bibliography file (usually '*.bib' )
+
+\end{backmatter}
+\end{document}
