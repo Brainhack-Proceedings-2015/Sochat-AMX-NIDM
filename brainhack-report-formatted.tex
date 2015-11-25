@@ -100,17 +100,17 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Integration of neuroimaging results into the web}
+\title{The Neuroimaging Data Model (NIDM) API}
 \vskip2ex
 \projectURL{Project URL: \url{http://nidm-api.readthedocs.org}}
 
 \author[
-addressref={aff1, aff2},
+addressref={aff1},
 corref={aff1},
 email={vsochat@stanford.edu}
 ]{\inits{VS} \fnm{Vanessa} \snm{Sochat}}
 \author[
-addressref={aff2},
+addressref={aff2,aff3},
 %
 email={nolan.nichols@gmail.com}
 ]{\inits{NN} \fnm{Nolan} \snm{Nichols}}
@@ -137,6 +137,14 @@ email={nolan.nichols@gmail.com}
   \city{Menlo Park},
   \street{333 Ravenswood Ave},
   \postcode{94025},
+  \postcode{California},
+  \cny{USA}
+}
+\address[id=aff3]{%
+  \orgname{Department of Psychiatry and Behavioral Sciences, Stanford University},
+  \city{Stanford},
+  \street{1265 Welch Road},
+  \postcode{94306},
   \postcode{California},
   \cny{USA}
 }
@@ -206,10 +214,10 @@ email={nolan.nichols@gmail.com}
 
 %%% Import the body from pandoc formatted text
 \section{Introduction}\label{introduction}
-The sharing of neuroimaging research can be aided by the Neuroimaging Data Model \cite{noauthor_undated-jz} \cite{noauthor_undated-pr}, a collection of specifications for documents to describe outputs of experiments, workflows, and results from neuroimaging data, software, and publications \cite{noauthor_undated-jv}. While much work is being done to integrate these standards into software and tools in the domain of human brain mapping, such a model based on the resource description framework (RDF) \cite{noauthor_undated-hj} and complex language to query it \cite{noauthor_undated-cp} makes integration of these structures into standard web development workflows highly challenging. A migration of tools for neuroimaging meta analysis \cite{Yarkoni2011-rg}, sharing \cite{Gorgolewski2015-sf}, and visualization \cite{noauthor_undated-ca}, into the browser comes with the implicit reality that web developers will be incentivized and able to easily integrate standards into web applications if they are provided using common, modern languages and formats. Unfortunately, Sparql has not been widely adopted \cite{noauthor_undated-tz}, as the formats of choice for web development tend to be JavaScript and JavaScript Object Notation (JSON) \cite{Wikipedia_contributors2015-on}, commonly provided by way of an Application Programming Interface (API). The goal of this Brainhack project was to develop infrastructure to serve these NIDM objects, and queries to them, in modern formats to allow for the easy development of web-based tools using NIDM.
+The sharing of brain research can be aided by the Neuroimaging Data Model (NIDM)[KEATOR TOWARDS STRUCTURED SHARING] \cite{noauthor_undated-jz} \cite{noauthor_undated-pr}. NIDM provides a community-based framework for developing data exchange standards that describe the primary observations, computational workflows, and derived results of neuroimaging studies \cite{noauthor_undated-jv}. While work is underway to integrate NIDM into the software used by the human brain mapping community, only low-level tools are currently available to access and query NIDM documents that rely on a graph-based representation called the Resource Description Framework (RDF) \cite{noauthor_undated-hj}. Further, technologies like RDF and the corresponding query language, SPARQL \cite{noauthor_undated-cp}, pose a steep learning curve for users of standard Web development workflows. With the recent migration of tools for neuroimaging meta analysis \cite{Yarkoni2011-rg}, sharing [CITE Papers from Recent Neuroimage Issue] \cite{Gorgolewski2015-sf}, and visualization [CITE galant, XTK, BrainBrowser, etc]\cite{noauthor_undated-ca} into the Web browser, Web developers will be incentivized by the ability to easily integrate brain data into Web applications using familiar languages and formats. The formats of choice for web development tend to be JavaScript and JavaScript Object Notation (JSON) \cite{Wikipedia_contributors2015-on} \cite{noauthor_undated-tz}, commonly provided by way of an Application Programming Interface (API). The goal of this Brainhack project was to develop infrastructure to serve NIDM documents and queries using an API with a syntax that allows for the easy development of Web-based tools for the neuroimaging community.
 
 \section{Approach}\label{approach}
-The \texttt{nidm-api} \cite{noauthor_undated-hq} is a web-based application that integrates these complex objects into formats that are accessible to web developers and researchers without semantic web expertise. It includes two components. First, the \href{https://github.com/incf-nidash/nidm-api}{\texttt{nidm-api}}, is a python-based executable that works both as a command-line tool to run queries over the NIDM data structures, as well as to serve a RESTful API to allow a local or cloud-based server to execute queries on objects accessible by URL. Second, \href{https://github.com/incf-nidash/nidm-queries}{\texttt{nidm-queries}} is a repository of Sparql queries that the \texttt{nidm-api} application dynamically downloads, validates, and serves upon starting the application. This strategy means that semantic web experts can contribute to and collaborate on development of the data structures and Sparql queries without needing to worry about overall accessibility and understanding to web developers that are not knowledgeable about this niche technology. The \texttt{nidm-api}, along with serving the queries, also provides graphical web interfaces to contribute new query objects to the shared repository. By way of being a python Flask \cite{noauthor_undated-ia} application, this makes the application able to perform as both an executable to serve the API \cite{noauthor_undated-ii}, along with a set of functions that can be integrated into other python-based frameworks \cite{noauthor_undated-ej} or cloud platforms that provide python accessibility \cite{noauthor_undated-jw}\cite{Google_undated-aj}. 
+The \texttt{nidm-api} \cite{noauthor_undated-hq} is a RESTful API and Web application that provides a simplified view of NIDM documents using formats that are accessible to Web developers and researchers without expertise in Linked Open Data (LOD) technologies. It includes two components. First, the \href{https://github.com/incf-nidash/nidm-api}{\texttt{nidm-api}}, is a Python-based executable that works both as a command-line tool to run queries over NIDM documents, as well as to serve a RESTful API to allow a local or cloud-based server to execute queries on documents accessible by URL. Second, \href{https://github.com/incf-nidash/nidm-queries}{\texttt{nidm-queries}} is a repository of SPARQL queries that the \texttt{nidm-api} application dynamically downloads, validates, and serves upon starting the application. This strategy means that NIDM developers can collaboratively construct SPARQL queries without requiring Web developers to gain expertise in LOD technology. The \texttt{nidm-api}, along with serving the queries, also provides a graphical Web interfaces to contribute new queries to the shared repository. By way of being a Python Flask \cite{noauthor_undated-ia} application, this makes the application able to perform as both an executable to serve the API \cite{noauthor_undated-ii}, along with a set of functions that can be integrated into other Python-based frameworks \cite{noauthor_undated-ej} or cloud platforms that provide Python accessibility \cite{noauthor_undated-jw}\cite{Google_undated-aj}. 
 
 \section{Results}\label{results}
 \subparagraph{\texorpdfstring{\texttt{Using the API}:}{:}}\label{section}
@@ -217,16 +225,16 @@ Installation produces an executable, “nidm” that when run, downloads, valida
 
 \textbf{http://localhost:8088/api/7950f524-90e8-4d54-ad6d-7b22af2e895d}\newline
 
-and can then be executed in a RESTful fashion by including a variable to point to a local path or URL of a NIDM object:\newline
+and can then be executed in a RESTful fashion by including a variable to point to a local path or URL of a NIDM document:\newline
 
 \textbf{http://localhost:8088/api/query/7950f524-90e8-4d54-ad6d-7b22af2e895d?ttl=/home/nidm.ttl}\newline
 
-The API then runs the query over the object, and returns the result to the user in JSON.
+The API then runs the query over the document, and returns the result to the user in JSON.
 
-The same functionality can be achieved on the command line \href{http://nidm-api.readthedocs.org/en/latest/getting-started.html#integration-into-python}{command line} in the case that it is desired to integrate it directly into a server-based python application.\newline
+The same functionality can be achieved on the command line \href{http://nidm-api.readthedocs.org/en/latest/getting-started.html#integration-into-python}{command line} in the case that it is desired to integrate it directly into a server-based Python application.\newline
 
 \subparagraph{\texorpdfstring{\texttt{Generating new queries}:}{:}}\label{section}
-Researchers with semantic web expertise can run the application in the same fashion, and go to URL in their local browser (http://localhost:8088/query/new) to reveal \href{http://nidm-api.readthedocs.org/en/latest/development.html#web-query-generator}{an interface} to generate new query objects. The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.\newline
+Researchers familiar with LOD can run the application in the same fashion, and go to a URL in their local browser (http://localhost:8088/query/new) to reveal \href{http://nidm-api.readthedocs.org/en/latest/development.html#web-query-generator}{an interface} to generate new queries. The web interface asks for a set of \href{http://nidm-api.readthedocs.org/en/latest/development.html#fields}{variables} that are necessary for the \texttt{nidm-api} to serve the query. The query can be previewed, and then downloaded as a JSON object that can be submit to the \texttt{nidm-queries} repository to be added to the application.\newline
 
 \subparagraph{\texorpdfstring{\texttt{Applications using NIDM}:}{:}}\label{section}
 As an example of the utility of the NIDM standard, the NIDM results object model \cite{noauthor_undated-if} has recently been integrated into the \href{http://www.neurovault.org}{NeuroVault} database, meaning that neuroimaging researchers can export results pertaining to statistical brain maps from common software \cite{Jenkinson2012-pr} into NeuroVault. An \href{https://github.com/vsoch/nidmviewer}{nidm-viewer} that runs queries over the nidm-results can then parse the coordinates and statistical parameters associated with significant locations of activations to be rendered in a table alongside a visualization of the brain map itself (Figure \ref{fig:01} and \href{http://neurovault.org/collections/877/fsl_course_av.nidm}{example}). The raw data and parameters of the analysis are thus immediately available for sharing and publication, programatically accessible, and viewed from any web browser. 
@@ -251,7 +259,7 @@ By separating queries from the software to serve them, development of both can b
 \begin{backmatter}
 
 \section*{Availability of Supporting Data}
-More information about this project can be found at: \url{http://nidm-api.readthedocs.org}. Further data and files supporting this project are hosted in the \emph{NIDM-nidash} repositories https://github.com/incf-nidash/nidm-api and https://github.com/incf-nidash/nidm-queries.
+More information about this project can be found at: \url{http://nidm-api.readthedocs.org}. Further data and files supporting this project are hosted in the \emph{INCF NIDASH} repositories https://github.com/incf-nidash/nidm-api and https://github.com/incf-nidash/nidm-queries.
 
 \section*{Competing interests}
 None
@@ -260,8 +268,7 @@ None
 VS and NN wrote the software and wrote the report.
 
 \section*{Acknowledgements}
-The authors would like to thank the INCF-Nidash working group, along with organizers and attendees of
-Brainhack MX. VS is supported by a William R. Hewlett Stanford Graduate Fellowship and a National Science Foundation Fellowship. 
+The authors would like to thank the INCF Neuroimaging Data Sharing Task Force, along with organizers and attendees of Brainhack MX. VS is supported by a William R. Hewlett Stanford Graduate Fellowship and a National Science Foundation Fellowship. NN is supported by NIH NIAAA and OD (NCANDA Data Analysis Component, NIH 1 U01 AA021697; BD2K Supplement, NIH 1 U01 AA021697-04S1).
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                  The Bibliography                       %%
